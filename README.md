@@ -4,3 +4,8 @@ Code for Beginner Deep Learning Tutorial on the MNIST Digits Classification Neur
 
 Commented jupyter notebook ready to use for simple classifier demo purpose
 
+INSPIRED BY:
+
+https://github.com/azinonos/MNIST_DL_Tutorial
+
+

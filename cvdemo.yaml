@@ -1,0 +1,39 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cvdemo
+  labels:
+    app: cvdemo
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: cvdemo
+  name: cvdemo-app
+  namespace: cvdemo
+spec:
+  containers:
+  - image: lboschet/computer-vision-demo-notebook
+    name: cvdemo
+    ports:
+      - containerPort: 8888
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cvdemo-svc
+  namespace: cvdemo
+  labels:
+    app: cvdemo
+spec:
+  ports:
+  - port: 8888
+    targetPort: 8888
+  type: LoadBalancer
+  selector:
+    app: cvdemo

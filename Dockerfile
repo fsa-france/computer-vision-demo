@@ -58,7 +58,7 @@ RUN /opt/computer-vision-demo/bin/pip install livelossplot
 ENV PATH="/usr/bin:/opt/computer-vision-demo/bin:${PATH}"
 
 # Verify the installation of Graphviz
-RUN dot -V
+#RUN dot -V
 
 # Create a user within the container & set the working directory
 RUN useradd -ms /bin/bash cv-demo

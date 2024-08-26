@@ -1,15 +1,15 @@
 # Build the container
-#   % docker build . -t lboschet/computer-vision-demo-notebook 
+#   % docker build . -t lboschet/computer-vision-demo
 #
 # Cross architecture settings
 # Learn more at https://docs.docker.com/go/build-multi-platform/
 #   % docker buildx create --use
 # Build: 
-#   % docker buildx build --platform linux/amd64,linux/arm64 -t lboschet/computer-vision-demo-notebook --push .
+#   % docker buildx build --platform linux/amd64,linux/arm64 -t lboschet/computer-vision-demo:latest --push .
 # Push: 
-#   % docker login; docker push lboschet/computer-vision-demo-notebook
+#   % docker login; docker push lboschet/computer-vision-demo (default to 'latest' tag)
 # Run:
-#   % docker run -p 8888:8888 -it lboschet/computer-vision-demo-notebook
+#   % docker run -p 8888:8888 -it lboschet/computer-vision-demo --name computer-vision-demo
 
 # In case of issue when building the container, remove unused volumes:
 #   % docker volume ls -q 
@@ -23,16 +23,16 @@ FROM ubuntu:22.04
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Run a system update & install python3 and pip3
-RUN apt update
-RUN apt install -y python3 python3-pip
+#RUN apt update
+#RUN apt install -y python3 python3-pip
 
-# Install necessary dependencies for h5py
-RUN apt install -y libhdf5-dev libhdf5-serial-dev pkg-config
-RUN rm -rf /var/lib/apt/lists/*
+# Install necessary python3 and dependencies for h5py
+RUN apt update && apt install -y python3 python3-pip python3-dev build-essential libssl-dev libffi-dev \ 
+    libhdf5-dev libhdf5-serial-dev pkg-config && rm -rf /var/lib/apt/lists/*
 
 # Install all necessary pythin3 packages (including jupyter) from the requirements.txt file
 COPY requirements.txt /home/cv-demo/requirements.txt
-RUN pip3 install -r /home/cv-demo/requirements.txt
+RUN pip3 install --timeout=100 -r /home/cv-demo/requirements.txt
 
 # Create a user within the container & set the working directory
 RUN useradd -ms /bin/bash cv-demo

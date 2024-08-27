@@ -1,6 +1,6 @@
 # MNIST Simple Computer Vision Demo (from azinonos tutorial)
 
-Code for Beginner Deep Learning Tutorial on the MNIST Digits Classification Neural Network in Python using Keras
+Code for a Beginner Deep Learning Tutorial based on the MNIST Digits Classification Neural Network in Python using Keras and Tensorflow
 
 Commented jupyter notebook ready to use for simple classifier demo purpose
 
@@ -26,3 +26,14 @@ To remove the application from your kubernetes cluster use the following command
 
     kubectl delete -f https://raw.githubusercontent.com/fsa-france/computer-vision-demo/main/cvdemo.yaml
     
+# Run the Computer Vision Demo on Docker
+
+## Insure you have docker installed on your computer
+
+    % docker --version
+    Docker version 27.1.1, build 6312585
+
+## Run the docker container
+
+    % docker run -p 8888:8888 -it --name computer-vision-demo lboschet/computer-vision-demo
+

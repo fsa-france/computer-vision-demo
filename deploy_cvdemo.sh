@@ -1,7 +1,7 @@
 #/bin/sh
 ###########################################################################################################################
 #                                                                                                                         #
-# This script will deploy Computer Vision Demo on a Kubernetes Cluter                                                     #
+# This script will deploy Computer Vision Demo on a Kubernetes Cluster                                                    #
 #                                                                                                                         #
 # Spec file is retrieved from GitHub : https://raw.githubusercontent.com/fsa-france/computer-vision-demo/main/cvdemo.yaml #
 #                                                                                                                         #

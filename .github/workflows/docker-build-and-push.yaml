@@ -1,4 +1,4 @@
-name: Computer Vision Demo Docker Image
+name: Computer Vision Demo Build & Push Docker Image
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: ./.github/actions/checkout
     - name: Build & Push the Docker image
       run: | 
         echo "${{ secrets.DOCKER_PWD }}" | docker login -u "${{ secrets.DOCKER_LOGIN }}" --pasword-stdin

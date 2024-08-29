@@ -11,4 +11,4 @@ livelossplot
 pydot
 jupyter
 ipykernel
-Pyarrow
+pyarrow

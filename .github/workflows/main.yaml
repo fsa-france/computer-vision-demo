@@ -1,0 +1,21 @@
+name: Computer Vision Demo Docker Image
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build & Push the Docker image
+      run: | 
+        echo "${{ secrets.DOCKER_PWD }}" | docker login -u "${{ secrets.DOCKER_LOGIN }}" --pasword-stdin
+        docker buildx create --use
+        docker buildx build --platform linux/amd64,linux/arm64 -t "${{ secrets.DOCKER_LOGIN }}"/computer-vision-demo:latest --push .

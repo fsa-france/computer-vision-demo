@@ -1,0 +1,5 @@
+name: 'Checkout'
+description: 'Checkout the repository'
+runs:
+  using: 'node12'
+  main: 'index.js'

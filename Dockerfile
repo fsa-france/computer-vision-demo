@@ -12,6 +12,9 @@
 # 
 # Run the container
 #   % docker run -p 8888:8888 -it --name computer-vision-demo lboschet/computer-vision-demo:latest
+#
+# Connect to tthe container
+#   % docker run -p 8888:8888 -it --entrypoint /bin/bash --name computer-vision-demo lboschet/computer-vision-demo:latest
 
 # In case of issue when building the container, remove unused volumes:
 #   % docker volume ls -q 

@@ -14,8 +14,8 @@ jobs:
 
     steps:
     - name: Checkout repository
-    - uses: ./.github/actions/checkout
-    
+      uses: ./.github/actions/checkout
+      
     - name: Build & Push the Docker image
       run: | 
         echo "${{ secrets.DOCKER_PWD }}" | docker login -u "${{ secrets.DOCKER_LOGIN }}" --pasword-stdin

@@ -15,7 +15,7 @@ metadata:
   namespace: cvdemo
 spec:
   containers:
-  - image: lboschet/computer-vision-demo
+  - image: lboschet/computer-vision-demo:latest
     name: cvdemo
     ports:
       - containerPort: 8888

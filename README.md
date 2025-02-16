@@ -37,3 +37,7 @@ To remove the application from your kubernetes cluster use the following command
 
     % docker run -p 8888:8888 -it --name computer-vision-demo lboschet/computer-vision-demo
 
+## License
+
+[GNU LICENSE](LICENSE)
+
